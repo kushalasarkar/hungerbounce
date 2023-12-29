@@ -2,17 +2,21 @@ import React from 'react'
 import './Card.css'
 import logo from "./Hyderabadi-chicken-Biryani.jpg";
 
-const Card = ({name, cuisine, rating, time}) => {
+const Card = ({ name, cloudinaryImageId, cuisines, rating, time, locality }) => {
+  const imglink = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
   return (
     <div className='card'>
-      <img className='food-img' alt="image" src={logo} />
-      <h4 className='restaurant-name'>{name}</h4>
-      <h5 className='cuisine'>North Indian, Asian</h5>
-      <div className='last-line'> 
-        <div className='rating'>
-          4.2 *
+      <img className='food-img' alt="image" src={imglink + cloudinaryImageId} />
+      <div className='details'>
+        <h3 className='restaurant-name'>{name}</h3>
+        <div className='last-line'>
+          <div className='rating'>
+            {rating} *
+          </div>
+          <h5 className='time'>{time} min</h5>
         </div>
-        <h5 className='time'>30 mins</h5>
+        <p className='cuisine'>{cuisines.slice(0, 2).join(", ")}</p>
+        <p className='locality'>{locality}</p>
       </div>
     </div>
   )

@@ -3,17 +3,22 @@ import Card from './Card';
 import './Cards.css'
 
 const Cards = ({listOfRestaurant}) => {
+
+  
   return (
     <div className='card-container'>
-      {/* <Card name={"KFC"}/>
-      <Card/>
-      <Card/>
-      <Card/>
-      <Card/>
-      <Card/> */}
-      {listOfRestaurant.map((restaurant,index)=>{
-        <Card key={index} name={restaurant.info.name}/>
-})}
+      
+      {listOfRestaurant.map((restaurant, index) => (
+        <Card key={index} 
+        name={restaurant.info.name} 
+        cloudinaryImageId={restaurant.info.cloudinaryImageId} 
+        rating={restaurant.info.avgRating}
+        time={restaurant.info.sla.deliveryTime}
+        cuisines={restaurant.info.cuisines}
+        locality={restaurant.info.locality}
+        />
+      ))}
+      
     </div>
   )
 }
