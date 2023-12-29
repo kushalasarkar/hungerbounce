@@ -1,6 +1,7 @@
 import React from 'react'
 import './Card.css'
 import logo from "./Hyderabadi-chicken-Biryani.jpg";
+
 const Card = ({name, cuisine, rating, time}) => {
   return (
     <div className='card'>
