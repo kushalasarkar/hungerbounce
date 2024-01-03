@@ -1,3 +1,12 @@
 .body{
      
 }
+.filters-top-line{
+    display: flex;
+    margin: 5px;
+    flex-wrap: wrap;
+    
+}
+.filters-top-line-item{
+    margin-right: 5px;
+}
