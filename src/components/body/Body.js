@@ -21,10 +21,10 @@ const Body = () => {
     const json = await data.json();
 
     //optional chaining
-    setListOfRestaurant(json.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-    setFilteredRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    setListOfRestaurant(json.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setFilteredRestaurant(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
   }
-  // console.log(listOfRestaurant.length);
+  // console.log(listOfRestaurant);
   if (listOfRestaurant.length === 0) {
     return <Shimmer />
   }
