@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Cards from './Cards'
-import Card from './Card'
+
 import Shimmer from './Shimmer';
 import './Body.css';
 
