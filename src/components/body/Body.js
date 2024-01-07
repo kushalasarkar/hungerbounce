@@ -17,7 +17,9 @@ const Body = () => {
 
   const fetchdata = async () => {
     // const data = await fetch(`https://instafood.onrender.com/api/restaurants?lat=12.9351929&lng=77.62448069999999`);
-    const data = await fetch(`https://instafood.onrender.com/api/restaurants?lat=18.516726&lng=73.856255`);
+    // const data = await fetch(`https://instafood.onrender.com/api/restaurants?lat=18.516726&lng=73.856255`);
+    // const data = await fetch(`https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.1157917&lng=91.7085933&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`);
+    const data = await fetch(`https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.516726&lng=73.856255&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`);
     const json = await data.json();
 
     //optional chaining

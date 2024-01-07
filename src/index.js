@@ -1,36 +1,43 @@
-import React from 'react';
+import React, { Children } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 // import { RouterProvider } from 'react-router-dom';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Body from './components/body/Body';
 import About from './components/body/About';
-import ContactUs from './components/body/ContactUs';
+import Contact from './components/body/Contact';
 import Cart from './components/body/Cart';
 import Error from './Error';
 
 const appRouter = createBrowserRouter([
   {
     path: "/",
-    element: <App/>,
-    errorElement: <Error/>
-  },{
-    path: "/about",
-    element: <About/>
-  },{
-    path: "/Contactus",
-    element: <ContactUs/>
-  },{
-    path: "/cart",
-    element: <Cart/>
+    element: <App />,
+    errorElement: <Error />,
+    children: [
+      {
+        path: "/",
+        element: <Body />
+      },{
+        path: "/about",
+        element: <About />
+      }, {
+        path: "/Contact",
+        element: <Contact />
+      }, {
+        path: "/cart",
+        element: <Cart />
+      }
+    ]
   }
 ])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={appRouter}/>
+    <RouterProvider router={appRouter} />
   </React.StrictMode>
 );
 
