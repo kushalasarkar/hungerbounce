@@ -1,3 +1,11 @@
+# Tired of unlimited food surfing. 
+# Taking longer time decide what to eat than the delivery time.
+# We made it easy for you.
+# Live swiggy data but lot more consice. 
+# No more unlimited scroling
+# Here are the top picks and there top dishes.
+# Enjoy
+
 
 # Various functionalities included in this project
 - started building this project from scratch (react-scratch).
