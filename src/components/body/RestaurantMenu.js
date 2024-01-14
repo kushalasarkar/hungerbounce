@@ -5,9 +5,9 @@ const RestaurantMenu = () => {
     const { resid } = useParams()
     const [resDetails, setResDetails] = useState([]);
     const [resCuisines, setResCuisines] = useState([]);
-    
-    const [menu, setMenu] = useState([]);
-    const [menuCategory, setMenuCategory] = useState([]);
+
+    const [corousal, setCorousal] = useState([]);
+    const [menuSec, setMenuSec] = useState([]);
     const [menuItems, setMenuItems] = useState([]);
 
     useEffect(() => {
@@ -18,15 +18,17 @@ const RestaurantMenu = () => {
         const json = await data.json();
         // console.log(json);
 
-        setResDetails(json.data.cards[0].card.card.info);
-        setResCuisines(json.data.cards[0].card.card.info.cuisines)
+        setResDetails(json?.data?.cards[0]?.card?.card?.info);
+        setResCuisines(json?.data?.cards[0]?.card?.card?.info?.cuisines)
 
-        setMenu(json.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards);
-        setMenuItems();
+        setCorousal(json?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.carousel);
+        setMenuItems(json?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[3]?.card?.card?.itemCards);
+        setMenuSec(json?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards);
+        // setMenuItems(json.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards);
+        // console.log(menu.length + "  is length");
+
     }
-    const menulist = (menu)=>{
-        
-    }
+
 
     // console.log(resCuisines);
 
@@ -34,18 +36,20 @@ const RestaurantMenu = () => {
         <div>
             <div className='info'>
                 <h1>{resDetails.name}</h1>
-                <p>{resCuisines.join(', ')}</p>                
+                <h5>{resCuisines.join(', ')}</h5>
             </div>
+            <hr />
             <div className='menu'>
-                {menu.map((e)=>(
-                <>
-                    <h3>{e.card.card.title}</h3>
-                    {e.card.card.itemCards.map((i)=>(<p>{i.card.info.name}</p>))}
-                    {/* <p>{e.card.card.itemCards.card.info.name.join(', ')}</p> */}
-                </>
-                // {menu.map((e)=>(<p>{e.card.card.itemCards.map((i)=>(i.card.info.name))}</p>
-                
-                ))}
+                {menuSec != undefined ?
+                    <><h2>Recomended...</h2> {menuSec.map((e) => (<><h5>{e.card.info.name} - Rs {e.card.info.price / 100}</h5></>))}</>
+                    : 
+                 
+                corousal != undefined ?
+                    <><h2>Top Picks</h2> {corousal.map((e) => (<><h3>{e.dish.info.name} - Rs {e.dish.info.price / 100}</h3></>))}</>
+                    :
+                    <><h2>{menuItems[0].card.info.category}</h2> {menuItems.map((e) => (<><p>{e.card.info.name} - Rs {e.card.info.price / 100}</p></>))}</>
+                }
+
             </div>
         </div>
     )
