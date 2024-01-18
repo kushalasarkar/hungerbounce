@@ -12,15 +12,17 @@ const Cards = ({listOfRestaurant}) => {
       {listOfRestaurant.map((restaurant) => (
         <NavLink to={"/restautants/"+restaurant.info.id} 
         key={restaurant.info.id}>
-        <Card  
-        name={restaurant.info.name} 
-        cloudinaryImageId={restaurant.info.cloudinaryImageId} 
-        rating={restaurant.info.avgRating}
-        time={restaurant.info.sla.deliveryTime}
-        cuisines={restaurant.info.cuisines}
-        locality={restaurant.info.locality}
-        // onClick={()=>{}}
-        /></NavLink>
+
+          <Card  
+          name={restaurant.info.name} 
+          cloudinaryImageId={restaurant.info.cloudinaryImageId} 
+          rating={restaurant.info.avgRating}
+          time={restaurant.info.sla.deliveryTime}
+          cuisines={restaurant.info.cuisines}
+          locality={restaurant.info.locality}
+          // onClick={()=>{}}
+          />
+        </NavLink>
       ))}
       
     </div>

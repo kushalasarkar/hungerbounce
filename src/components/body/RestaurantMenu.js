@@ -34,14 +34,14 @@ const RestaurantMenu = () => {
 
     return (
         <div>
-            <div className='info'>
-                <h1>{resDetails.name}</h1>
-                <h5>{resCuisines.join(', ')}</h5>
+            <div className='info  '>
+                <h1 className='font-extrabold'>{resDetails.name}</h1>
+                <h5 className='font-bold'>{resCuisines.join(', ')}</h5>
             </div>
-            <hr />
+            <br />
             <div className='menu'>
                 {menuSec != undefined ?
-                    <><h2>Recomended...</h2> {menuSec.map((e) => (<><h5>{e.card.info.name} - Rs {e.card.info.price / 100}</h5></>))}</>
+                    <><h2 className='underline'>Recomended...</h2> {menuSec.map((e) => (<><h5>{e.card.info.name} - Rs {e.card.info.price / 100}</h5></>))}</>
                     : 
                  
                 corousal != undefined ?
@@ -51,6 +51,7 @@ const RestaurantMenu = () => {
                 }
 
             </div>
+            
         </div>
     )
 }
