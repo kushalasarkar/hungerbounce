@@ -1,13 +1,13 @@
 import React from 'react'
 import Card from './Card';
-import './Cards.css'
+// import './Cards.css'
 import {NavLink} from 'react-router-dom'
 
 const Cards = ({listOfRestaurant}) => {
 
   
   return (
-    <div className='card-container'>
+    <div className='card-container flex flex-wrap justify-center  '>
       {/* <NavLink to="/restautants/:resid">Menu</NavLink> */}
       {listOfRestaurant.map((restaurant) => (
         <NavLink to={"/restautants/"+restaurant.info.id} 

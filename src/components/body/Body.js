@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Cards from './Cards'
 
 import Shimmer from './Shimmer';
-import './Body.css';
+// import './Body.css';
 
 const Body = () => {
 
@@ -35,25 +35,32 @@ const Body = () => {
   return (
     <div className='body'>
       {/* <Search listOfRestaurant/> */}
-      <div className='filters-top-line'>
-        <div className='search-container filters-top-line-item'>
-          <input placeholder='Type for search' value={searchText} onChange={(e) => { setSearchText(e.target.value) }} />
-          <button onClick={() => {
-            console.log("searchText = " + searchText);
+      <div className=' mx-28'>
+        <div className='filters-top-line flex justify-evenly pt-2 '>
+          <div className='search-container filters-top-line-item w-1/3'>
 
-            const filteredRestaurant = listOfRestaurant.filter((res) =>
-              res.info.name.toLowerCase().includes(searchText.toLowerCase())
-            );
-            console.log(filteredRestaurant);
-            setFilteredRestaurant(filteredRestaurant)
-          }}>Search</button>
+            <input placeholder='Type for search' value={searchText} onChange={(e) => { setSearchText(e.target.value) }}
+              className='border-2  pl-2 w-4/5 h-10 rounded-l-lg' />
+            <button className='h-10  bg-orange-400 px-2 w-20 text-white border-none rounded-r-lg'
+             onClick={() => {
+              console.log("searchText = " + searchText);
 
+              const filteredRestaurant = listOfRestaurant.filter((res) =>
+                res.info.name.toLowerCase().includes(searchText.toLowerCase())
+              );
+              console.log(filteredRestaurant);
+              setFilteredRestaurant(filteredRestaurant)
+            }}>Search</button>
+
+          </div>
+          <button className='filters-top-line-item bg-orange-400 px-3 rounded-lg text-white' 
+          onClick={() => {
+            const avgres = listOfRestaurant.filter((res) => res.info.avgRating >= 4.2)
+            setFilteredRestaurant(avgres)
+          }}>Top Rated Restaurants</button>
+          <button className='filters-top-line-item bg-orange-400 px-3 rounded-lg text-white' 
+          onClick={() => { setFilteredRestaurant(listOfRestaurant) }}>Reset</button>
         </div>
-        <button className='filters-top-line-item' onClick={()=>{
-          const avgres = listOfRestaurant.filter((res)=> res.info.avgRating>=4.2)
-          setFilteredRestaurant(avgres)
-        }}>Top Rated Restaurants</button>
-        <button className='filters-top-line-item' onClick={()=>{setFilteredRestaurant(listOfRestaurant)}}>Reset</button>
       </div>
       <Cards listOfRestaurant={filteredRestaurant} />
 
